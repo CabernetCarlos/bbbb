@@ -1,6 +1,8 @@
 body {
   display: flex;
   flex-direction: column;
+  font-family: 'Niramit', sans-serif;
+  background: linear-gradient(90deg, #d53369 0%, #daae51 100%);
 }
 
 .game-container {
@@ -14,21 +16,52 @@ body {
 .title {
   display: flex;
   justify-content: center;
+  padding-bottom: 5vw;
+  --bg-size: 400%;
+  --color-one: #d63968ff;
+  --color-two: #daac52ff;
+  background: linear-gradient(
+                90deg,
+                var(--color-one),
+                var(--color-two),
+                var(--color-one)
+              ) 0 0 / var(--bg-size) 100%;
+  color: transparent;
+  background-clip: text;
+  -webkit-background-clip: text;
+  animation: move-bg 16s infinite linear;
+  
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .title {
+    animation: move-bg 16s linear infinite;
+  }
+  @keyframes move-bg {
+    to {
+      background-position: var(--bg-size) 0;
+    }
+  }
 }
 
 .score-container {
   display: flex;
   flex-direction: column;
   align-content: center;
-  border: 2px solid black;
   gap: 1rem;
+  width: 50%;
+  height: 100%;
+  box-shadow: 0 0 1rem 0 rgba(0, 0, 0, .2); 
+  border-radius: 5px;
+  background-color: rgba(255, 255, 255, .15);
+  backdrop-filter: blur(5px);
 }
 
 .score-title {
   display: flex;
   gap: 1rem;
   justify-content: center;
-  padding-top: 5%;
+  padding-top: 1vw;
 }
 
 .score-box {
@@ -47,7 +80,6 @@ body {
   gap: 1rem;
   align-items: center;
   justify-content: space-around;
-
 }
 
 .p1 {
@@ -75,4 +107,27 @@ body {
 .cpu-score {
   display: flex;
   gap: 1rem;
+}
+
+.bears-button {
+  border-radius: 50%;
+}
+
+.selections {
+  display: flex;
+  padding: 20vw;
+}
+
+.bears {
+  height: 100px;
+  width: 100px;
+  border-radius: 50%;
+  object-fit: contain;
+}
+
+.beets {
+  height: 100px;
+  width: 100px;
+  border-radius: 50%;
+  object-fit: contain;
 }
